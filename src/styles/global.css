@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+:root {
+  --light-black: #00000052;
+  --white: #FFFFFF;
+
+  --light-gray: #333333;
+}
+
+@media (max-width: 1080px){
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px){
+  html {
+    font-size: 87.5%;
+  }
+}
+
+body, input, textarea, select, button {
+  font: 400 1rem "Hebbo", sans-serif;
+  color: var(--light-gray)
+}
+
+button {
+  cursor: pointer;
+}
