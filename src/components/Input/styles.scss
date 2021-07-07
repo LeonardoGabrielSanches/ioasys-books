@@ -1,0 +1,48 @@
+@import '../../styles/colors';
+
+.input-container {
+  width: 23rem;
+  height: 4rem;
+
+  padding: 0.75rem 1rem;
+
+  background-color: $light-black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+
+  border-radius: 0.75rem;
+
+  color: $opacity-50-white;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    height: 3.125rem;
+    margin-top: 0.25rem;
+
+    width: 15rem;
+
+    color: $white;
+  }
+
+  button {
+    border:none;
+
+    width: 85px;
+    height: 2.25rem;
+
+    border-radius: 2rem;
+
+    color: $pink;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,43 @@
+@import '../../styles/colors';
+
+@mixin total-height{
+  height: 100vh;
+}
+
+.login-container  {
+  @include total-height();
+
+  background: url('../../assets/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-content{
+  max-width: 50%;
+  @include total-height();
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  margin-left: 15rem;
+
+  h1 {
+    color: $white;
+
+    margin-bottom: 3.125rem;
+    font-size: 3rem;
+
+    font-weight: 300;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
