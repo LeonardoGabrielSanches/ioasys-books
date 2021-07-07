@@ -35,6 +35,8 @@
   }
 
   button {
+    background-color: $white;
+
     border:none;
 
     width: 85px;
@@ -44,5 +46,11 @@
 
     color: $pink;
     font-weight: 500;
+
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken($color: $white, $amount: 10);
+    }
   }
 }
