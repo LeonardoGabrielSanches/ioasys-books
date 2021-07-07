@@ -1,6 +1,7 @@
-import React, { useState } from "react"
-import Input from '../../components/Input';
+import { useState } from "react"
 import { useAuth } from "../../hooks/AuthContext";
+
+import Input from '../../components/Input';
 
 import api from '../../services/api';
 
@@ -51,6 +52,9 @@ export default function Login() {
             <button type="submit">Entrar</button>
           </Input>
         </form>
+        <div className="error-container">
+          <span>Erro ao fazer algo</span>
+        </div>
       </section>
     </div>
   )

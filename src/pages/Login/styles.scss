@@ -41,3 +41,29 @@
     flex-direction: column;
   }
 }
+
+.error-container {
+  position: relative;
+
+  background-color: red;
+  width: 22.5rem;
+
+  span {
+    width: 22.5rem;
+    background: #4583;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #312e38;
+
+    &::before {
+      content: '';
+      border-style: solid;
+      border-color: #000 transparent;
+      border-width: 0px 6px 6px 6px;
+      top: -75%;
+      position: absolute;
+      transform: translateX(-50%);
+    }
+  }
+}
