@@ -9,11 +9,9 @@ Modal.setAppElement('#root');
 export default function BookModal({ isOpen }) {
   return (
     <Modal isOpen={isOpen} className="book-modal-container">
-      <div className="book-modal-close">
-        <button type="button">
-          <img src={closeImg} alt="Close" />
-        </button>
-      </div>
+      <button className="book-modal-close" type="button">
+        <img src={closeImg} alt="Close" />
+      </button>
 
       <div className="book-modal-content">
         <img src="" alt="" />
