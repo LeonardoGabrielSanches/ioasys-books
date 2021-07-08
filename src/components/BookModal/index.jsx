@@ -6,7 +6,7 @@ import './styles.scss';
 
 Modal.setAppElement('#root');
 
-export default function BookModal({ isOpen }) {
+export default function BookModal({ isOpen, book }) {
   return (
     <Modal isOpen={isOpen} className="book-modal-container">
       <button className="book-modal-close" type="button">
@@ -14,10 +14,10 @@ export default function BookModal({ isOpen }) {
       </button>
 
       <div className="book-modal-content">
-        <img src="" alt="" />
+        <img src={book?.imageUrl} alt={book?.title} />
 
         <section>
-          <h1>Titulo</h1>
+          <h1>{book?.title}</h1>
           <p>SUb</p>
 
           <h1>Informações</h1>

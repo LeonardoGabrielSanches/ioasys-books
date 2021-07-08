@@ -18,6 +18,7 @@ export default function BookList() {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [totalBookPages, setTotalBookPages] = useState(0);
+  const [selectedBook, setSelectedBook] = useState();
 
   const loadBooksByPage = useCallback(async () => {
     const response = await api.get(`books?page=${page}&amount=12`);
@@ -25,6 +26,7 @@ export default function BookList() {
     const { data, totalPages } = response.data;
 
     setBooks(data);
+    setSelectedBook(data[0]);
     setTotalBookPages(Math.round(totalPages));
   }, [page]);
 
@@ -67,7 +69,7 @@ export default function BookList() {
           />
         </footer>
       </div>
-      <BookModal isOpen />
+      <BookModal isOpen book={selectedBook} />
     </>
   );
 }

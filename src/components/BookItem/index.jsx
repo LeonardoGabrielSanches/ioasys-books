@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 
 import './styles.scss';
 
-export default function BookItem({ book }) {
+export default function BookItem({ book, handleSelectBook }) {
   return (
-    <div className="book-item-container">
+    <div className="book-item-container" onClick={handleSelectBook}>
       <img src={book.imageUrl} alt={book.title} />
       <section>
         <header>

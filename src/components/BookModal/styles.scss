@@ -27,9 +27,16 @@
 
 .book-modal-content {
   width: 100%;
-  max-width: 576px;
+  max-width: 900px;
+  height: 608px;
   background: $white;
   padding: 3rem;
-  position: relative;
   border-radius: 0.25rem;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 3rem;
+  }
 }
