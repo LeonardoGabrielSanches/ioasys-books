@@ -1,0 +1,40 @@
+@import '../../styles/screen';
+@import '../../styles/colors';
+
+.book-list-container {
+  @include total-height();
+
+  background: url('../../assets/background-book.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 3.25rem 7.125rem 5.75rem;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      display: flex;
+      align-items: center;
+
+
+      font: 300 1.75rem normal;
+      color: $light-gray;
+
+      img {
+        margin-right: 1rem;
+      }
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-right: 1.5625rem;
+      }
+    }
+  }
+}

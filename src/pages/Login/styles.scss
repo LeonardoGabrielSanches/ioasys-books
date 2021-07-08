@@ -1,8 +1,5 @@
 @import '../../styles/colors';
-
-@mixin total-height{
-  height: 100vh;
-}
+@import '../../styles/screen';
 
 .login-container  {
   @include total-height();
@@ -24,15 +21,16 @@
   margin-left: 15rem;
 
   h1 {
-    color: $white;
+    display: flex;
+    align-items: center;
 
     margin-bottom: 3.125rem;
-    font-size: 3rem;
 
-    font-weight: 300;
+    font: 300 1.75rem normal;
+    color: $white;
 
-    strong {
-      font-weight: 600;
+    img {
+      margin-right: 1rem;
     }
   }
 
@@ -61,7 +59,7 @@
       border-style: solid;
       border-color: $opacity-40-white transparent;
       border-width: 0px 6px 6px 6px;
-      top: -75%;
+      top: -60%;
       position: absolute;
       transform: translateX(-50%);
     }

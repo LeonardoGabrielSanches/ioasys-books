@@ -3,6 +3,8 @@ import { useAuth } from "../../hooks/AuthContext";
 
 import Input from '../../components/Input';
 
+import whiteLogoImg from '../../assets/white-logo.png';
+
 import api from '../../services/api';
 
 import './styles.scss';
@@ -33,7 +35,7 @@ export default function Login() {
 
       <section className="login-content">
         <h1>
-          <strong>ioasys</strong> Books
+          <img src={whiteLogoImg} alt="Logo" /> Books
         </h1>
 
         <form onSubmit={handleSubmit}>
