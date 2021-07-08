@@ -10,7 +10,7 @@ export default function Routes() {
 
   return (
     <Switch>
-      <Route path="/login" component={Login} />
+      <Route path="/" exact component={Login} />
       <Route
         path="/books"
         render={({ location }) => {
@@ -19,7 +19,7 @@ export default function Routes() {
           ) : (
             <Redirect
               to={{
-                pathname: user ? '/books' : '/login',
+                pathname: user ? '/books' : '/',
                 state: { from: location },
               }}
             />
