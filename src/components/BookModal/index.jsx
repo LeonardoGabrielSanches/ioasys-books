@@ -2,14 +2,18 @@ import Modal from 'react-modal';
 
 import closeImg from '../../assets/close.svg';
 
+import './styles.scss';
+
 Modal.setAppElement('#root');
 
-export default function BookModal() {
+export default function BookModal({ isOpen }) {
   return (
-    <Modal isOpen className="book-modal-container">
-      <button type="button">
-        <img src={closeImg} alt="Close" />
-      </button>
+    <Modal isOpen={isOpen} className="book-modal-container">
+      <div className="book-modal-close">
+        <button type="button">
+          <img src={closeImg} alt="Close" />
+        </button>
+      </div>
 
       <div className="book-modal-content">
         <img src="" alt="" />

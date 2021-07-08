@@ -5,6 +5,20 @@
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.book-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    border: none;
+    background: transparent;
+  }
+}
+
+.book-modal-content {
   display: flex;
   align-items: center;
   justify-content: center;

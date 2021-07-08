@@ -67,7 +67,7 @@ export default function BookList() {
           />
         </footer>
       </div>
-      <BookModal />
+      <BookModal isOpen />
     </>
   );
 }
