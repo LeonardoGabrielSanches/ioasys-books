@@ -18,6 +18,8 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    setErrorMessage('');
+
     api.post('auth/sign-in', { email, password }).then(response => {
       console.log(response);
       signIn(response.data, response.headers.authorization, response.headers['refresh-token']);
@@ -52,9 +54,11 @@ export default function Login() {
             <button type="submit">Entrar</button>
           </Input>
         </form>
-        <div className="error-container">
-          <span>Erro ao fazer algo</span>
-        </div>
+        {!!errorMessage && (
+          <div className="error-container">
+            <span>{errorMessage}</span>
+          </div>
+        )}
       </section>
     </div>
   )

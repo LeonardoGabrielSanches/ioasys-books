@@ -43,23 +43,23 @@
 }
 
 .error-container {
-  position: relative;
+  margin-top: 20rem;
 
-  background-color: red;
+  position: absolute;
+
   width: 22.5rem;
 
   span {
-    width: 22.5rem;
-    background: #4583;
+    background: $opacity-40-white;
     padding: 8px;
     border-radius: 4px;
     font-weight: 500;
-    color: #312e38;
+    color: $white;
 
     &::before {
       content: '';
       border-style: solid;
-      border-color: #000 transparent;
+      border-color: $opacity-40-white transparent;
       border-width: 0px 6px 6px 6px;
       top: -75%;
       position: absolute;
