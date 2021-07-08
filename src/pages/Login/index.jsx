@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useAuth } from "../../hooks/AuthContext";
+import { useState } from 'react';
+import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
 
@@ -17,22 +17,27 @@ export default function Login() {
 
   const { signIn } = useAuth();
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
     setErrorMessage('');
 
-    api.post('auth/sign-in', { email, password }).then(response => {
-      console.log(response);
-      signIn(response.data, response.headers.authorization, response.headers['refresh-token']);
-    }).catch(err => {
-      setErrorMessage(err.response.data.errors.message);
-    });
+    api
+      .post('auth/sign-in', { email, password })
+      .then(response => {
+        const { data, headers } = response;
+
+        signIn(data, headers.authorization, headers['refresh-token']);
+        setEmail('');
+        setPassword('');
+      })
+      .catch(err => {
+        setErrorMessage(err.response.data.errors.message);
+      });
   }
 
   return (
     <div className="login-container">
-
       <section className="login-content">
         <h1>
           <img src={whiteLogoImg} alt="Logo" /> Books
@@ -44,14 +49,18 @@ export default function Login() {
             type="text"
             label="E-mail"
             value={email}
-            onChange={(e) => { setEmail(e.target.value) }}
+            onChange={e => {
+              setEmail(e.target.value);
+            }}
           />
           <Input
             name="password"
             type="password"
             label="Senha"
             value={password}
-            onChange={(e) => { setPassword(e.target.value) }}
+            onChange={e => {
+              setPassword(e.target.value);
+            }}
           >
             <button type="submit">Entrar</button>
           </Input>
@@ -63,5 +72,5 @@ export default function Login() {
         )}
       </section>
     </div>
-  )
+  );
 }
