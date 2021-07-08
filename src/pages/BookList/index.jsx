@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useAuth } from '../../hooks/AuthContext';
 
 import Pagination from '../../components/Pagination';
 
@@ -11,6 +12,8 @@ import BookItem from '../../components/BookItem';
 import './styles.scss';
 
 export default function BookList() {
+  const { logout } = useAuth();
+
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [totalBookPages, setTotalBookPages] = useState(0);
@@ -28,6 +31,10 @@ export default function BookList() {
     loadBooksByPage();
   }, [loadBooksByPage]);
 
+  function handleLogout() {
+    logout();
+  }
+
   return (
     <div className="book-list-container">
       <header>
@@ -39,7 +46,9 @@ export default function BookList() {
           <span>
             Bem vindo, <strong>Leonardo!</strong>
           </span>
-          <img src={logoutImg} alt="logout" />
+          <button type="button" onClick={handleLogout}>
+            <img src={logoutImg} alt="logout" />
+          </button>
         </div>
       </header>
 

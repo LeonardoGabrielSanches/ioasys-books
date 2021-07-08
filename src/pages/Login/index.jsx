@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
@@ -10,12 +11,14 @@ import api from '../../services/api';
 import './styles.scss';
 
 export default function Login() {
+  const history = useHistory();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [errorMessage, setErrorMessage] = useState('');
 
-  const { signIn } = useAuth();
+  const { login } = useAuth();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -27,9 +30,11 @@ export default function Login() {
       .then(response => {
         const { data, headers } = response;
 
-        signIn(data, headers.authorization, headers['refresh-token']);
+        login(data, headers.authorization, headers['refresh-token']);
         setEmail('');
         setPassword('');
+
+        history.push('/books');
       })
       .catch(err => {
         setErrorMessage(err.response.data.errors.message);

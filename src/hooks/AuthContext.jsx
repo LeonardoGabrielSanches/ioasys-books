@@ -6,14 +6,18 @@ const AuthContext = createContext({});
 export function AuthProvider({ children }) {
   const [user, setUser] = useState();
 
-  function signIn(userSignIn, token, refreshToken) {
-    setUser({ ...userSignIn, token, refreshToken });
+  function login(userlogin, token, refreshToken) {
+    setUser({ ...userlogin, token, refreshToken });
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
   }
 
+  function logout() {
+    setUser(undefined);
+  }
+
   return (
-    <AuthContext.Provider value={{ signIn, user }}>
+    <AuthContext.Provider value={{ login, user, logout }}>
       {children}
     </AuthContext.Provider>
   );
