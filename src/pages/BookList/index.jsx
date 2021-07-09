@@ -18,6 +18,8 @@ export default function BookList() {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [totalBookPages, setTotalBookPages] = useState(0);
+
+  const [modalOpen, setModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState();
 
   const loadBooksByPage = useCallback(async () => {
@@ -26,7 +28,6 @@ export default function BookList() {
     const { data, totalPages } = response.data;
 
     setBooks(data);
-    setSelectedBook(data[0]);
     setTotalBookPages(Math.round(totalPages));
   }, [page]);
 
@@ -36,6 +37,15 @@ export default function BookList() {
 
   function handleLogout() {
     logout();
+  }
+
+  function handleSelectBook(book) {
+    setSelectedBook(book);
+    setModalOpen(true);
+  }
+
+  function handleCloseModal() {
+    setModalOpen(false);
   }
 
   return (
@@ -58,7 +68,13 @@ export default function BookList() {
 
         <section className="book-list-content">
           {books.map(book => (
-            <BookItem key={book.id} book={book} />
+            <BookItem
+              key={book.id}
+              book={book}
+              handleSelectBook={() => {
+                handleSelectBook(book);
+              }}
+            />
           ))}
         </section>
         <footer>
@@ -69,7 +85,11 @@ export default function BookList() {
           />
         </footer>
       </div>
-      <BookModal isOpen book={selectedBook} />
+      <BookModal
+        isOpen={modalOpen}
+        handleCloseModal={handleCloseModal}
+        book={selectedBook}
+      />
     </>
   );
 }

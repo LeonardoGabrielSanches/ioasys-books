@@ -36,7 +36,35 @@
   display: flex;
   align-items: center;
 
-  img {
+  img.book-image {
     margin-right: 3rem;
   }
+
+  cite {
+    color: $gray-text;
+  }
+
+  div {
+    height: 100%;
+    width: 100%;
+
+    section {
+      margin-bottom: 2rem;
+
+      p {
+        color: $pink;
+      }
+
+      span {
+        color: $gray-text;
+      }
+    }
+  }
+}
+
+.book-modal-table {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 0.75rem;
 }
